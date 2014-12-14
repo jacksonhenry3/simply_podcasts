@@ -1,0 +1,29 @@
+body {
+  background-color: #3498db; }
+
+h1 {
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  top: 100px;
+  color: #3498db;
+  font-size: 5em;
+  font-weight: 100;
+  z-index: 100;
+  text-shadow: 0 0 1px 10px rgba(0, 0, 0, 0.5); }
+
+h1:before {
+  padding: 50px;
+  left: 0px;
+  top: -60vw;
+  max-top: 400px;
+  width: 100vw;
+  max-width: 800px;
+  max-height: 800px;
+  height: 100vw;
+  border-radius: 50vw;
+  background-color: white;
+  content: '';
+  position: absolute;
+  z-index: -1; }
+
+/*# sourceMappingURL=main.css.map */

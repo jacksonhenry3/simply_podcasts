@@ -1,107 +1,27 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-        <![endif]-->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <div id="feed"></div>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script src="js/main.js"></script>
-        <script src="js/fetchPodcasts.js"></script>
-        <style type="text/css">
-
-        .paused
-        {
-            position: relative;
-            width: 0px; 
-            height: 0px; 
-            border-top: 23px solid transparent;
-            border-bottom: 23px solid transparent;
-            border-left: 36px solid #222;
-            transition:all .35s;
-            /*margin:10px;*/
-            transform: rotate(0deg);
-        }
-
-        .playing
-        {
-            /*margin:10px;*/
-            width: 8px; 
-            height: 40px; 
-            background-color: #222;
-            border-top: 0px solid transparent;
-            border-bottom: 0px solid transparent;
-            border-left: 0px solid #222;
-            border-right:0px solid transparent;
-            transition:all .35s;
-            position: relative;
-            transform: rotate(180deg);
-        }
-
-        .playing:before
-        {
-            content:'';
-            position: absolute;
-            left:-200%;
-            width:100%;
-            height:100%;
-            background-color: #222;
-        }
-
-        .playing:after
-        {
-            content:'';
-            position: absolute;
-            z-index: -1;
-            left:-200%;
-            width:300%;
-            height:100%;
-        }
-
-
-        .paused:before
-        {
-            content:'';
-            position: absolute;
-            left:-200%;
-            width:100%;
-            height:100%;
-            background-color: #222;
-        }
-
-        .thing
-        {
-            /*position:relative;*/
-            width:0%;
-            height: 10px;
-            background-color: teal;
-        }
-
-
-
-        </style>
-    </body>
+<!--mobie wireframe design https://wireframe.cc/0tgMIP -->
+<!--desktop wireframe design https://wireframe.cc/m4Usdy -->
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sass/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700,400' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src = 'js/fetchPodcasts.js'></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class = 'col-sm-12'>
+          <div class = 'main_image'>
+          </div>
+        </div>
+        <div class = "row">
+          
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

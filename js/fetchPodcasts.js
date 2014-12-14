@@ -12,99 +12,91 @@ function getAudio(feedEpisodeObj){
 	}
 }
 
-feedURL = "http://www.npr.org/rss/podcast.php?id=510289"
-
-function createCustomFeedArray(feedURL){
-	var feed = new google.feeds.Feed(feedURL),
-		feedArray = []
-	feed.load(
-		function(result) 
+function getFeedImage(feedEpisodeObj){
+	test = feedEpisodeObj.xmlDocument.getElementsByTagName("image")
+	console.log(feedEpisodeObj.xmlDocument)
+	for (var i in test)
+	{
+		l = test.length
+		imageUrl = test[l-i-1].getAttribute('href')
+		if (imageUrl.indexOf('png') != -1 || imageUrl.indexOf('jpg') != -1)
 		{
-			if (!result.error){
-				for (var i = 0; i < result.feed.entries.length; i++){
-					var entry   = result.feed.entries[i],
+			return(imageUrl)
+		}
+	}
+}
+
+
+function customFeed(feed){
+	this.image = 'images/space.jpg'
+	this.image = getFeedImage(feed)
+	this.description = feed.feed.description
+	this.link = feed.feed.link
+	
+	this.getEpisodes = function() 
+		{
+			episodes = []
+			if (!feed.error){
+				for (var i = 0; i < feed.feed.entries.length; i++){
+					var entry   = feed.feed.entries[i],
 						episode = {
-									audioURL    : getAudio(entry),
+									audio       : getAudio(entry),
 									title       : entry.title,
+									author      : entry.author,
 									link        : entry.link,
-									description : entry.description
-								  }
-					feedArray.push(episode)	
+									description : entry.content
+								  }						
+					episodes.push(episode)	
+					var audio = new Audio();
+					audio.preload = 'none'
+					audio.src = episode.audio;
+
+					
+					audio.controls = true;
+					audio.autoplay = false;
+
+
+					document.body.appendChild(audio);
 				}
 			}
+			return(episodes)
 		}
-	);
-	return(feedArray)
-}
 
+	this.episodes = this.getEpisodes(feed)
 
+	console.log(this.image)
+	document.body.style.backgroundImage="url('"+this.image+"')"
+	document.body.style.backgroundSize = "100%"
+	document.body.style.backgroundRepeat = "no-repeat"
 
-function customPlayer(src,title,parent)
-{
-	this.init = function()
-	{
-	parent.appendChild(this.audioElement)
-	parent.appendChild(this.createPlayButton(this.audioElement))
-	};
-	this.audioElement      = new Audio();
-	this.audioElement.src       = src;
-	this.audioElement.className = 'player';
-	this.audioElement.controls  = false;
-	this.audioElement.autoplay  = false;
-	this.audioElement.defaultPlaybackRate = 1;
-	this.audioElement.load()
-	this.createPlayButton  = function(audioElement)
-	{
-		var playButton = document.createElement('div');
-		playButton.className = ' paused';
-		playButton.onclick = function () {
-			if (audioElement.paused) {
-				audioElement.play(); 
-				playButton.className = playButton.className.replace("paused","playing")
-			}
-			else if (!audioElement.paused) 
-			{
-				audioElement.pause(); 
-				playButton.className = playButton.className.replace(" playing"," paused")
-			};
-		};
-		return(playButton)
-	};
-	this.init()
-	return(this.audioElement)
-}
-
-function initialize() {
-  var feed = new google.feeds.Feed("http://feeds.wnyc.org/radiolab");
-	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
-  feed.load(function(result) {
-    if (!result.error) {
-      var container = document.getElementById("feed");
-      for (var i = 0; i < result.feed.entries.length; i++) {
-        var entry = result.feed.entries[i];
-        // console.log(getAudio(entry))
-
-        // Create an <audio> element dynamically.
-		var audio = new customPlayer(getAudio(entry),entry.title,container)
-		
-		if (i===0)
-		{
-			window.setInterval(function(){trackTime(audio)},60)
-		}
-      }
-    }
-  });
-}
-
-var cart = document.createElement('div');
-cart.className = 'thing'
-document.body.appendChild(cart)
-
-function trackTime (audio) {
-	x = audio.currentTime/audio.duration*100.
-	cart.style.width = String(x)+'%'
-	console.log(String(x))
 	
 }
 
-google.setOnLoadCallback(initialize);
+
+google.setOnLoadCallback(function(){
+
+function getFeed(feedUrl,numEpisodes)
+{
+	var feed = new google.feeds.Feed(feedURL);
+	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
+	feed.setNumEntries(numEpisodes);
+	var a;
+
+	feed.load(function(result){
+		a = new customFeed(result)
+		console.log(a)
+	})
+    
+}
+feedURL = "https://philosophynow.org/podcasts/rss"
+feedURL = "http://www.npr.org/rss/podcast.php?id=510289"
+feedURL = "http://feeds.wnyc.org/radiolab";
+feedURL = 'http://superbestfriendsplay.com/?feed=podcast'
+feedURL = "http://feeds.themoth.org/themothpodcast"
+feedURL = 'http://feeds.podtrac.com/m2lTaLRx8AWb'
+
+
+feed = getFeed(feedURL,10)
+
+
+});
