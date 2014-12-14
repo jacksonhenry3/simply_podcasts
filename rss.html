@@ -1,12 +1,31 @@
 <html>
   <head>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+    <style type="text/css">
+/*http://webdesign.tutsplus.com/tutorials/create-a-customized-html5-audio-player--webdesign-7081*/
 
+
+    </style>
+    <script type="text/javascript">
     google.load("feeds", "1");
 
+    function getAudio(entry) {
+	    for( var key in entry ) {
+	        if( typeof entry[key] === 'string'){
+		        if( entry[key].search(".mp3")!=-1){
+		        	console.log(entry[key]);
+		            return(entry[key])
+		        }
+		    }
+	        if( typeof entry[key] === 'object' ){
+	            return getAudio( entry[key] );
+	        }
+	}
+}
+
     function initialize() {
-      var feed = new google.feeds.Feed("http://feeds.wnyc.org/radiolab");
+      var feed = new google.feeds.Feed("http://www.npr.org/rss/podcast.php?id=510289");
       feed.load(function(result) {
         if (!result.error) {
           var container = document.getElementById("feed");
@@ -15,10 +34,13 @@
 
             // Create an <audio> element dynamically.
 			var audio = new Audio();
-			audio.src = entry.link;
-
+			a = getAudio(entry)
+			audio.src = a;
+			audio.className = 'audio'
+			
 			audio.controls = true;
 			audio.autoplay = false;
+
 			container.appendChild(audio);
           }
         }
@@ -26,12 +48,12 @@
     }
     google.setOnLoadCallback(initialize);
 
+    function trackTime (audio) {
+      console.log(audio.currentTime)
+      Window.requestAnimationFrame(trackTime)
+    }
     </script>
   </head>
-  <audio controls>
-  <source src="http://www.podtrac.com/pts/redirect.mp3/audio.wnyc.org/radiolab_podcast/radiolab_podcast14outsidewestgate.mp3" type="audio/mp3">
-Your browser does not support the audio element.
-</audio>
 
   <body>
     <div id="feed"></div>
