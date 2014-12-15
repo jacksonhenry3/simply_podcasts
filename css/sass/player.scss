@@ -11,7 +11,8 @@ body {
 }
 
 .player {
-  background-color:$color;
+	box-shadow:0 0 10px rgba(0,0,0,.8);
+  background-color:rgba(50,50,50,.95);
   font-family:$font;
   position: fixed;
   bottom: 0;

@@ -7,14 +7,11 @@ $color: #3498db;
 #songs
 {
 	background-color:#FEFEFE;
-	box-shadow:0 0 5px rgba(0,0,0,.2);
+	box-shadow:0 0 5px rgba(0,0,0,.4);
 	z-index:10;
 	audio
 	{
 		display: block;
 		margin:15px auto;
-		margin-bottom:0px;
-		margin-top:10px;
-		border-radius:0px;
 	}
 }

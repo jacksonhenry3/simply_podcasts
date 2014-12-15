@@ -7,7 +7,8 @@ body {
   margin-bottom: 60px; }
 
 .player {
-  background-color: #3498db;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  background-color: rgba(50, 50, 50, 0.95);
   font-family: "Roboto Slab", serif;
   position: fixed;
   bottom: 0;
@@ -27,13 +28,10 @@ body {
 
 #songs {
   background-color: #FEFEFE;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   z-index: 10; }
   #songs audio {
     display: block;
-    margin: 15px auto;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    border-radius: 0px; }
+    margin: 15px auto; }
 
 /*# sourceMappingURL=main.css.map */
