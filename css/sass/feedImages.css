@@ -1,0 +1,8 @@
+.main_image {
+  position: absolute;
+  height: 40%;
+  overflow: hidden; }
+  .main_image img {
+    width: 100%; }
+
+/*# sourceMappingURL=feedImages.css.map */

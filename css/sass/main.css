@@ -1,29 +1,39 @@
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
-  background-color: #3498db; }
+  /* Margin bottom by player height */
+  margin-bottom: 60px; }
 
-h1 {
-  display: inline-block;
+.player {
+  background-color: #3498db;
   font-family: "Roboto Slab", serif;
-  top: 100px;
-  color: #3498db;
-  font-size: 5em;
-  font-weight: 100;
-  z-index: 100;
-  text-shadow: 0 0 1px 10px rgba(0, 0, 0, 0.5); }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the player here */
+  height: 60px; }
 
-h1:before {
-  padding: 50px;
-  left: 0px;
-  top: -60vw;
-  max-top: 400px;
-  width: 100vw;
-  max-width: 800px;
-  max-height: 800px;
-  height: 100vw;
-  border-radius: 50vw;
-  background-color: white;
-  content: '';
-  position: absolute;
-  z-index: -1; }
+.main_image {
+  margin-bottom: 100vw; }
+  .main_image img {
+    z-index: -1;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0px auto;
+    position: fixed; }
+
+#songs {
+  background-color: #FEFEFE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10; }
+  #songs audio {
+    display: block;
+    margin: 15px auto;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    border-radius: 0px; }
 
 /*# sourceMappingURL=main.css.map */

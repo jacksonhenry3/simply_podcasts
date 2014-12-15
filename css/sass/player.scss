@@ -1,0 +1,22 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+$player-height: 60px;
+
+body {
+  /* Margin bottom by player height */
+  margin-bottom: $player-height;
+}
+
+.player {
+  background-color:$color;
+  font-family:$font;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the player here */
+  height: $player-height;
+  // background-color: #f5f5f5;
+}
