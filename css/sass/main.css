@@ -8,13 +8,14 @@ body {
 
 .player {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  background-color: rgba(50, 50, 50, 0.95);
+  background-color: #3498db;
   font-family: "Roboto Slab", serif;
   position: fixed;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the player here */
-  height: 60px; }
+  height: 60px;
+  opacity: .9; }
 
 .main_image {
   margin-bottom: 100vw; }

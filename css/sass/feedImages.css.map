@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,WACA;EACC,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAC,GAAG;EACV,QAAQ,EAAC,MAAM;EACf,eACA;IACC,KAAK,EAAC,IAAI",
-"sources": ["feedImages.scss"],
-"names": [],
-"file": "feedImages.css"
-}

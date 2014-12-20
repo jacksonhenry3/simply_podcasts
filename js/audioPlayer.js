@@ -1,12 +1,12 @@
-
 function customPlayer(src,title,parent)
 {
 	this.init = function()
 	{
-	parent.appendChild(this.audioElement)
-	parent.appendChild(this.createPlayButton(this.audioElement))
+		parent.appendChild(this.audioElement)
+		parent.appendChild(this.createPlayButton(this.audioElement))
 	};
-	this.audioElement      = new Audio();
+
+	this.audioElement           = new Audio();
 	this.audioElement.src       = src;
 	this.audioElement.className = 'player';
 	this.audioElement.controls  = false;
@@ -72,3 +72,20 @@ function initialize() {
 
 
 google.setOnLoadCallback(initialize);
+
+
+
+
+
+var audio = new Audio();
+					audio.preload = 'none'
+					audio.src = episode.audio;
+
+					
+					audio.controls = true;
+					audio.autoplay = false;
+
+test = document.getElementById('songs')
+					test.appendChild(audio);
+
+					

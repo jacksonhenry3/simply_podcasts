@@ -1,84 +1,9 @@
 google.load("feeds", "1");
 
-function getAudio(feedEpisodeObj){
-	test = feedEpisodeObj.xmlNode.getElementsByTagName("enclosure")
-	for (var i in test)
-	{
-		if (typeof(test[i]) === 'object')
-		{
-			if (test[i].getAttribute('type').indexOf('audio') != -1)
-			{
-				audioUrl = test[i].getAttribute("url")
-				return(audioUrl)
-			}
-		}
-	}
+function init()
+{
+	feed = getFeed(feedURL,100)
 }
-
-function getFeedImage(feedEpisodeObj){
-	test = feedEpisodeObj.xmlDocument.getElementsByTagName("image")
-	for (var i in test)
-	{
-		l = test.length
-		imageUrl = test[l-i-1].getAttribute('href')
-		if (imageUrl.indexOf('png') != -1 || imageUrl.indexOf('jpg') != -1)
-		{
-			return(imageUrl)
-		}
-	}
-}
-
-
-function customFeed(feed){
-	this.image = 'images/space.jpg'
-	this.image = getFeedImage(feed)
-	this.description = feed.feed.description
-	this.link = feed.feed.link
-	
-	this.getEpisodes = function() 
-		{
-			episodes = []
-			if (!feed.error){
-				for (var i = 0; i < feed.feed.entries.length; i++){
-					var entry   = feed.feed.entries[i];
-						episode = {
-									audio       : getAudio(entry),
-									title       : entry.title,
-									author      : entry.author,
-									link        : entry.link,
-									description : entry.content
-								  }
-
-					episodes.push(episode)	
-					var audio = new Audio();
-					audio.preload = 'none'
-					audio.src = episode.audio;
-
-					
-					audio.controls = true;
-					audio.autoplay = false;
-
-test = document.getElementById('songs')
-					test.appendChild(audio);
-				}
-			}
-			return(episodes)
-		}
-
-	this.episodes = this.getEpisodes(feed)
-
-	// console.log(this.image)
-	test = document.getElementById('test')
-	var image = document.createElement('img');
-	image.src = this.image
-
-	test.appendChild(image)
-
-	
-}
-
-
-google.setOnLoadCallback(function(){
 
 function getFeed(feedUrl,numEpisodes)
 {
@@ -86,23 +11,27 @@ function getFeed(feedUrl,numEpisodes)
 	feed.includeHistoricalEntries();
 	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
 	feed.setNumEntries(numEpisodes);
-	var a;
+
+	var myFeed;
 
 	feed.load(function(result){
-		a = new customFeed(result)
-		// console.log(a)
+		myFeed = new customFeed(result);
+
+		// code that works with the feed goes here
+
+
+
 	})
-    
-}
-// feedURL = "https://philosophynow.org/podcasts/rss"
-feedURL = "http://www.npr.org/rss/podcast.php?id=510289"
-// feedURL = "http://feeds.wnyc.org/radiolab";
-// feedURL = 'http://superbestfriendsplay.com/?feed=podcast'
-// feedURL = "http://feeds.themoth.org/themothpodcast"
-feedURL = 'http://feeds.podtrac.com/m2lTaLRx8AWb'
+};
 
 
-feed = getFeed(feedURL,100)
+var feedURL = "https://philosophynow.org/podcasts/rss",
+	feedURL = "http://www.npr.org/rss/podcast.php?id=510289",
+	feedURL = "http://feeds.wnyc.org/radiolab",
+	feedURL = 'http://superbestfriendsplay.com/?feed=podcast',
+	feedURL = "http://feeds.themoth.org/themothpodcast",
+	feedURL = 'http://feeds.podtrac.com/m2lTaLRx8AWb',
+	feedURL = "http://downloads.bbc.co.uk/podcasts/radio4/timc/rss.xml";
 
 
-});
+google.setOnLoadCallback(init);
