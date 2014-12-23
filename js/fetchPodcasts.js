@@ -78,13 +78,14 @@ player = document.getElementById('player')
 p = new Audio();
 p.controls = true
 player.appendChild(p)
-	window.setInterval(function () { 
+if (window.innerWidth >500) {
+	window.onscroll = function () { 
 	b = document.getElementById('row1')
 
   	a = document.getElementById('coverArt')
   	a.style.top = (window.scrollY/2)+"px"
 
-   },20 )
-
+   }; 
+};
 }
 
