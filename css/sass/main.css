@@ -22,7 +22,8 @@ body {
   max-height: 100vw;
   background-position: center;
   background-size: 100% auto;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  transition: top 1s; }
 
 #description {
   background-color: white;
