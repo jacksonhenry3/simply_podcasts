@@ -14,18 +14,22 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the player here */
-  height: 60px;
-  opacity: .9; }
+  height: 60px; }
 
-.main_image {
-  margin-bottom: 100vw; }
-  .main_image img {
-    z-index: -1;
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    margin: 0px auto;
-    position: fixed; }
+#coverArt {
+  height: 350px;
+  max-height: 100vw;
+  background-position: center;
+  background-size: 100% auto; }
+
+#description {
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
+body {
+  background: #FAFAFA;
+  font-family: "Roboto Slab", serif; }
 
 #songs {
   background-color: #FEFEFE;

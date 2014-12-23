@@ -1,13 +1,14 @@
-.main_image
-{margin-bottom:100vw;
-	img 
-	{
-		z-index:-1;
-		display: block;
-		width:100%;
-		max-width:500px;
-		margin:0px auto;
-		position: fixed;
+#coverArt
+{
+	height:350px;
+	max-height:100vw;
+	background-position: center ;
+	background-size: 100% auto;
+}
 
-	}
+#description
+{
+	background-color:white;
+	border-radius:2px;
+	box-shadow:0 0 10px rgba(0,0,0,.3);
 }

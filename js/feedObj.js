@@ -45,7 +45,7 @@ function customFeed(feed){
 			}
 			return(episodes)
 		}
-
+	this.title = feed.feed.title
 	this.image = getFeedImage(feed)
 	this.description = feed.feed.description
 	this.link = feed.feed.link
