@@ -77,6 +77,9 @@ player = document.getElementById('player')
 
 p = new Audio();
 p.controls = true
+p.style.width = '100%'
+p.style.position = 'relative'
+p.style.top = '15px'
 player.appendChild(p)
 if (window.innerWidth >500) {
 	window.onscroll = function () { 
