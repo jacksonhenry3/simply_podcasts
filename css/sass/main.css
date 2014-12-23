@@ -17,26 +17,31 @@ body {
   height: 60px; }
 
 #coverArt {
+  position: relative;
   height: 350px;
   max-height: 100vw;
   background-position: center;
-  background-size: 100% auto; }
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
 
 #description {
   background-color: white;
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
 
+#songs {
+  background-color: white;
+  list-style-type: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden; }
+
+#songs li {
+  padding: 15px; }
+
 body {
   background: #FAFAFA;
   font-family: "Roboto Slab", serif; }
-
-#songs {
-  background-color: #FEFEFE;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  z-index: 10; }
-  #songs audio {
-    display: block;
-    margin: 15px auto; }
 
 /*# sourceMappingURL=main.css.map */

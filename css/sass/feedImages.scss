@@ -1,9 +1,12 @@
 #coverArt
 {
+	position: relative;
 	height:350px;
 	max-height:100vw;
 	background-position: center ;
 	background-size: 100% auto;
+	// z-index: 10;
+	background-repeat: no-repeat;
 }
 
 #description
@@ -11,4 +14,20 @@
 	background-color:white;
 	border-radius:2px;
 	box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+#songs
+{
+	background-color:white;
+	list-style-type:none;
+	box-shadow:0 0 6px rgba(0,0,0,.2);
+	margin:0px;
+	padding:0px;
+	overflow: hidden;
+}
+
+
+#songs li 
+{
+	padding:15px;
 }

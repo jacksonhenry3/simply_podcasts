@@ -9,14 +9,3 @@ body
 	background:#FAFAFA;
 	font-family: $font;
 }
-#songs
-{
-	background-color:#FEFEFE;
-	box-shadow:0 0 5px rgba(0,0,0,.4);
-	z-index:10;
-	audio
-	{
-		display: block;
-		margin:15px auto;
-	}
-}
