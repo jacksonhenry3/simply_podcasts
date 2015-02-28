@@ -4,10 +4,11 @@ google.load("feeds", "1");
 
 function init()
 {
+	var feedURL = window.location.hash.substr(1);
 	feed = getFeed(feedURL,50)
 }
 
-function getFeed(feedUrl,numEpisodes)
+function getFeed(feedURL,numEpisodes)
 {
 	var feed = new google.feeds.Feed(feedURL);
 	feed.includeHistoricalEntries();
@@ -40,15 +41,8 @@ function getFeed(feedUrl,numEpisodes)
 };
 
 
-// var feedURL = "https://philosophynow.org/podcasts/rss",
-	feedURL = "http://www.npr.org/rss/podcast.php?id=510289";
-	// feedURL = "http://feeds.wnyc.org/radiolab";
-	// feedURL = 'http://superbestfriendsplay.com/?feed=podcast';
-	// feedURL = "http://feeds.themoth.org/themothpodcast";
-	// feedURL = 'http://feeds.podtrac.com/m2lTaLRx8AWb';
-	// feedURL = "http://downloads.bbc.co.uk/podcasts/radio4/timc/rss.xml";
 
-// feedURL = "http://www.sciencefriday.com/audio/scifriaudio.xml"
+
 google.setOnLoadCallback(init);
 
 function writeArrayToList(array){
