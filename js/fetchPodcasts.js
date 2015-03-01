@@ -5,7 +5,7 @@ google.load("feeds", "1");
 function init()
 {
 	var feedURL = window.location.hash.substr(1);
-	feed = getFeed(feedURL,50)
+	feed = getFeed(feedURL,500)
 }
 
 function getFeed(feedURL,numEpisodes)
