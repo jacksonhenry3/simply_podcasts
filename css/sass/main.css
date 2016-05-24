@@ -8,7 +8,7 @@ body {
 
 .player {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  background-color: #3498db;
+  background-color: #FAFAFA;
   font-family: "Roboto Slab", serif;
   position: fixed;
   bottom: 0;
