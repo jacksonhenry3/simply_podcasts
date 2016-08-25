@@ -1,4 +1,7 @@
 window.onload = function(){
+	    $.getJSON('https://itunes.apple.com/search?term=hello+internet&entity=podcast', function(data) {
+    console.log(data)
+});
 
 feedURLList = [
 ["https://philosophynow.org/podcasts/rss", 'philosophy now'],
