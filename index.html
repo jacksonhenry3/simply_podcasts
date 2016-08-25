@@ -8,26 +8,47 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/sass/main.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700,400' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/generateListPage.js"></script>
-    <style>
-    li
-    {
-      font-size: 2em;
-      text-align: center;
-    }
-</style>
+    <script type="text/javascript" src="js/gotorss.js"></script>
   </head>
   <body >
-    <div class="container-fluid">
+    <div class="container-fluid" id ='searchContainer'>
       <div class="row" id = 'row1'>
-          <div class = 'col-md-2'>
+        <div class = col-sm-3></div>
+        <div class = col-sm-6 id = 'title'>
+          <h1>Simply Podcasts</h1>
+        </div>
+        <div class = col-sm-3></div>
+        </div>
+        <div class="row">
+        <div class = col-sm-2></div>
+        <div class = col-sm-8>
+          <input type="text" name="rssLink" placeholder="Enter rss feed here then hit enter"  id = 'rssInput'> <br>
+        </div>
+        <div class = col-sm-2></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <div class = 'row'>
+    <div class = col-sm-3></div>
+        <div class = col-sm-6>
+          <h2 id = 'tryMe'>Or try some that I like</h2>
+        </div>
+        <div class = col-sm-3></div>
+        </div>
+      
+    
+      <div class="row">
+          <div class = 'col-sm-4'>
           </div>
-          <div class = 'col-md-8'>
+          <div class = 'col-sm-4' style = "text-align: center">
           <ol id = 'podcasts'>
           </ol>
           </div>
-          <div class = 'col-md-2'>
-          </div>
+          <div class = 'col-sm-4'>
+        </div>
+      </div>
       </div>
     </footer>
   </body>

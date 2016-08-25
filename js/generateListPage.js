@@ -7,7 +7,8 @@ feedURLList = [
 ['http://feeds.podtrac.com/m2lTaLRx8AWb','hello internet'],
 ["http://downloads.bbc.co.uk/podcasts/radio4/timc/rss.xml",'timc'],
 ["http://nightvale.libsyn.com/rss",'nightvale'],
-["http://www.sciencefriday.com/audio/scifriaudio.xml",'science firday']]
+["http://www.sciencefriday.com/audio/scifriaudio.xml",'science firday'],
+["http://dataskeptic.com/feed.rss","Data Skeptic"]]
 
 list = document.getElementById('podcasts')
 

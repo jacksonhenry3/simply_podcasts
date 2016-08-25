@@ -3,9 +3,11 @@ $color: #3498db;
 
 @import "player";
 @import "feedImages";
+@import "splash";
 
 body 
 {
 	background:#FAFAFA;
 	font-family: $font;
+	// overflow:hidden;
 }
