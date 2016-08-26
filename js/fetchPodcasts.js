@@ -28,7 +28,7 @@ function getFeed(feedURL,numEpisodes)
 		writeArrayToList(myFeed.episodes)
 		// b.style.textAlign = 'center';
 
-		// add click to view full description
+		//add click to view full description
 		//add way to cut off at nearest sentance
 		//add way to not have ... if full description included
 		b.innerHTML = "<h3 style = 'text-align:center;margin:0px;margin-bottom:5px;'>"+myFeed.title+"</h3><p>"+myFeed.description.slice(0,200)+"...</p>"
@@ -53,7 +53,6 @@ function writeArrayToList(array){
         item.innerHTML = array[i].title;
         function setSrc()
         {
-        	console.log(this)
         	p.src = array[this.dataset.number].audio;
         	p.play();
         }
