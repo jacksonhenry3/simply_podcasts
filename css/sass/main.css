@@ -1,5 +1,6 @@
 html {
   position: relative;
+   background: #3498db;
   min-height: 100%; }
 
 body {
@@ -43,7 +44,7 @@ body {
   cursor: pointer; }
 
 #searchContainer {
-  background: #3498db;
+ 
   height: 100%; }
 
 #title h1 {
