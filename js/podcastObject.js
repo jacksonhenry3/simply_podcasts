@@ -1,6 +1,6 @@
 google.load("feeds", "1");
 
-function podcast(url)
+function podcast(url,callback)
 {
 	var self = this
 
@@ -12,7 +12,8 @@ function podcast(url)
 		self.description = self.feed.description
 		self.link        = self.feed.link
 		self.title       = self.feed.title
-		self.getImageURL()
+		self.feedUrl     = self.feed.feedUrl
+		// self.getImageURL()
 		self.getEpisodes()
 	}
 
@@ -21,6 +22,7 @@ function podcast(url)
 		podcastImages = self.xml.getElementsByTagName("image")
 		for (var i = podcastImages.length - 1; i >= 0; i--) {
 			imageURL = podcastImages[i].getAttribute('href')
+
 			if (imageURL.indexOf('png') != -1 || imageURL.indexOf('jpg') != -1)
 			{
 				self.imageURL = imageURL
@@ -37,7 +39,7 @@ function podcast(url)
 			var episodeXML   = self.feed.entries[i];
 			ep = new episode(episodeXML)
 			episodes.push(ep)	
-			console.log(ep)				
+			// console.log(ep)				
 		}
 		self.episodes = episode
 	}
@@ -46,7 +48,10 @@ function podcast(url)
 	// feed.includeHistoricalEntries();
 	feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
 	// feed.setNumEntries(numEpisodes);
-	feed.load(function(result){self.init(result)})
+	feed.load(function(result){self.init(result)
+
+		typeof callback === 'function' && callback(self);
+		})
 }
 
 function episode(episodeXML)
@@ -107,20 +112,28 @@ $(document).keypress(function(e)
 
 		request.done(function(data)
 		{
+			// console.log(data)
 			results = data.results
 			for (var i = 0; i <= results.length-1; i++)
 			{
-				if (i ==0)
-				{
-					console.log(results[i])
-				}
-				console.log(results[i])//.trackName
-				var item = document.createElement('li');
-				item.appendChild(document.createTextNode(results[i].trackName));
+				p = new podcast(results[i].feedUrl,function(p){
+				
+
+				var item       = document.createElement('li'),
+				link           = document.createElement('a');
+
+				link.setAttribute("href","podcast.html#"+p.feedUrl);
+
+				link.innerHTML = p.title
+				item.append(link)
+				// item.appendChild(document.createTextNode(results[i].trackName));
 				list.appendChild(item);
+				// };
+				})
 			}
 
 			// $("#searchContainer").html('')
+			$("#searchContainer").find('ol').remove();
 			$("#searchContainer").append(list)
 		})
 	}

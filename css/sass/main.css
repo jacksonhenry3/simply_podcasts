@@ -1,6 +1,5 @@
 html {
   position: relative;
-   background: #3498db;
   min-height: 100%; }
 
 body {
@@ -43,16 +42,21 @@ body {
   padding: 5px;
   cursor: pointer; }
 
+html {
+  background: #3498db; }
+
 #searchContainer {
- 
+  background: #3498db;
   height: 100%; }
 
 #title h1 {
+  position: relative;
   font-weight: 100;
   margin-top: 50px;
   text-align: center;
   font-size: 10vw;
-  color: #fafafa; }
+  color: #fafafa;
+  transition: all 1s; }
 
 #title h1 b {
   font-weight: 800; }
@@ -67,10 +71,13 @@ body {
   margin-top: 20vh;
   margin-bottom: 20vh;
   border: 5px solid #3498db;
-  transition: border .3s; }
+  transition: margin-top 1s; }
 
 #rssInput:focus {
   border: 5px solid rgba(52, 152, 219, 0.7); }
+
+#rssInput:focus + h1 {
+  background: red; }
 
 input[type="text"] {
   font-size: 14px;
