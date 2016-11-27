@@ -1,10 +1,7 @@
-// #row1
-// {
-  
-//   width:100%;
-  
-// }
-
+html
+{
+  background: $color;
+}
 #searchContainer
 {
 background: $color;
@@ -13,11 +10,13 @@ height:100%;
 
 #title h1
 {
+  position: relative;
   font-weight: 100;
   margin-top:50px;
   text-align: center;
   font-size: 10vw;
   color:#fafafa;
+  transition:all 1s;
 }
 
 #title h1 b 
@@ -36,12 +35,21 @@ height:100%;
   margin-top:20vh;
   margin-bottom:20vh;
   border:5px solid $color;
-  transition: border .3s;
-
+  // transition: width 2s, height 2s, background-color 2s, transform 2s;
+  // transition: margin-top 1s, margin-bottom 1s, border .3s;
+  transition: margin-top 1s;
+  // transition: 
+  // transition: 
 }
+
 #rssInput:focus
 {
    border:5px solid rgba( $color, .7 );
+}
+
+#rssInput:focus + h1
+{
+   background:red;
 }
 
 

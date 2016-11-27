@@ -1,0 +1,1 @@
+$("#searchContainer").load("searchResults.html")
