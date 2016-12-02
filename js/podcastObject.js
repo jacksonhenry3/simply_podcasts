@@ -105,6 +105,10 @@ $(document).keypress(function(e)
 		querry = "http://itunes.apple.com/search?term=".concat(querry)
 		querry = querry.concat("&callback=goToPodcast")
 
+
+		loading = document.createElement('img');
+		loading.src = 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif'
+		$("#searchContainer").append(loading)
 		request = $.ajax({url: querry, dataType: "jsonp"});
 
 		var list = document.createElement('ol');
@@ -134,6 +138,7 @@ $(document).keypress(function(e)
 
 			// $("#searchContainer").html('')
 			$("#searchContainer").find('ol').remove();
+			$("#searchContainer").find('img').remove();
 			$("#searchContainer").append(list)
 		})
 	}
